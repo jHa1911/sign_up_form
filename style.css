@@ -1,38 +1,75 @@
 body {
     margin: 0px;
+    padding: 0px;
+    font-family: Arial, sans-serif;
+    color: aliceblue;
+
+}
+
+@font-face {
+    font-family: "Norse Bold";
+    src: url("./fonts/norse/Norsebold.otf");
 }
 
 .container {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
+    
 }
 
 #left-container {
-    width: 40vw;
-    height: 100vh;
-    background-color: blueviolet;
-
+    flex: 3;
+    position: relative;
+    background-position: center center;
+    background: url(image/space.jpg.jpg);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
 }
 
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Norse Bold";
+    font-size: 5.5rem;
+    color: aliceblue;
+    background-color: rgba(0, 0, 0, 0.45);
+    margin-top: 20vh;
+    padding: 15px 0px;
+}
+
+.logo-container img {
+    height: 125px;
+}
+
+.credit-author {
+    align-self: center;
+    color: aliceblue;
+    font-size: 0.6rem;
+}
+
+.credit-author a {
+    font-size: 0.6rem;
+    text-decoration: none;
+    color: aliceblue;
+}
+
+
 #right-container {
-    width: 60vw;
-    height: 100vh;
+    flex: 5;
     background-color: #1a1a1a;
     display: flex;
     flex-direction: column;
     gap: 50px;
-    
+    padding: 20px;
     
 }
 
 .upper-section {
-    margin-left: 20px;
-    margin-right: 50px;
-    margin-top: 100px;
+    margin: 100px 50px 0px 20px;
 }
 
 p {
@@ -45,16 +82,32 @@ p {
 }
 
 .form-content {
-    border: 2px solid white;
-    width: 98%;
-    height: 40%;
+    background-color: beige;
+    height: 40vh; /* Aspect ratio: adjust as needed */
+    box-sizing: border-box;
 
 }
 
-.create-account {
-    width: auto;
-    padding: 5px;
-    margin-right: 300px;
-    margin-left: 10px;
+button {
+    width: 150px;
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-sizing: border-box;
     
+}
+
+@media (max-width: 768px) {
+    #right-container {
+        width: 100%;
+    }
+
+    .upper-section {
+        margin: 50px 20px 0px 20px;
+    }
 }

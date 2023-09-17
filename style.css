@@ -13,6 +13,7 @@ body {
 
 .container {
     display: flex;
+    flex-flow: row wrap;
     min-height: 100vh;
     
 }
@@ -48,12 +49,11 @@ body {
 .credit-author {
     align-self: center;
     color: aliceblue;
-    font-size: 0.6rem;
+    font-size: 0.7rem;
 }
 
 .credit-author a {
-    font-size: 0.6rem;
-    text-decoration: none;
+    font-size: 0.7rem;
     color: aliceblue;
 }
 
@@ -61,53 +61,165 @@ body {
 #right-container {
     flex: 5;
     background-color: #1a1a1a;
+    box-sizing: border-box;
     display: flex;
-    flex-direction: column;
-    gap: 50px;
-    padding: 20px;
+    flex-flow: column nowrap;
+    justify-content: center;
+    
     
 }
 
 .upper-section {
-    margin: 100px 50px 0px 20px;
+    margin: 40px 80px 20px 40px;
+    
+    
 }
 
 p {
-    color: green;
-    font-size: 1rem;
+    max-width: 65ch;
+    font-size: large;
     font-weight: bold;
     margin: 0px;
     padding: 0px;
 
 }
 
-.form-content {
-    background-color: beige;
-    height: 40vh; /* Aspect ratio: adjust as needed */
-    box-sizing: border-box;
-
+.upper-section p:first-child {
+    padding-bottom: 20px;
 }
+
+.form-content {
+    display: flex;
+    flex-flow: row wrap;
+    row-gap: 20px;
+    column-gap: 40px;
+    color: white;
+    margin-bottom: 30px;
+    padding-top: 10px;
+    padding-left: 40px;
+    padding-bottom: 40px;
+    -webkit-box-shadow: 0px 7px 11px -1px rgba(0,0,0,0.55);
+    -moz-box-shadow: 0px 7px 11px -1px rgba(0,0,0,0.55);
+    box-shadow: 0px 7px 11px -1px rgba(0,0,0,0.55);
+}
+
+h3 {
+    width: 100%;
+    font-size: 1.5rem;
+}
+
+.input {
+    display: flex;
+    flex-flow: column wrap;
+    width: 35%;
+}
+
+
+
+.form-content label {
+    font-size: 0.7rem;
+    letter-spacing: 0.1rem;
+    margin-bottom: 1px;
+}
+
+.form-content input {
+    box-sizing: border-box;
+    border: 1px solid #e5e7eb;
+    border-radius: 4px;
+    padding: 4px 8px;
+    width: 100%;
+    font-size: 1rem;
+    /* margin-right: 32px;*/
+}
+
+.error {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+
 
 button {
-    width: 150px;
-    background-color: green;
+    margin-left: 40px;
+    background-color: #1a1a1a;
     color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
+    border: 1px solid white;
+    border-radius: 4px;
+    padding: 8px 16px;
     font-size: 1rem;
-    font-weight: bold;
     cursor: pointer;
-    box-sizing: border-box;
-    
+    transition: all 0.3s ease-in-out;
 }
 
-@media (max-width: 768px) {
-    #right-container {
-        width: 100%;
+.log-in {
+    
+    margin-left: 20px;
+    padding-left: 20px;
+    padding-bottom: 50px;
+    color: white;
+    margin-top: 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.log-in a {
+    color: white;
+    text-decoration: none;
+}
+
+input:not(:placeholder-shown)+label{
+    opacity: 0;
+}
+
+input:invalid:not(:placeholder-shown):not(:focus){
+    background: url('./image/wrong.svg');
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: 97% 50%;
+    outline: 2px solid red;
+    outline-offset: -2px;
+    background-color:pink;
+}
+
+input:valid:not(:placeholder-shown):not(:focus){
+    background: url('image/check.svg');
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: 97% 50%;
+    background-color:rgb(228, 255, 228);
+    outline: 2px solid lightgreen;
+    outline-offset: -2px;
+}
+
+.requirements{
+    font-size: 14px;
+    max-height: 0px;
+    height: 0%;
+    transition: 0.28s;
+    overflow: hidden;
+    color: red;
+    font-style: italic;
+    transition: height 0.3s ease-in-out,max-height 0.3s ease-in-out;
+}
+
+input:invalid:not(:focus):not(:placeholder-shown)~.requirements{
+    height: 100%;
+    max-height: 200px;
+}
+
+
+
+
+
+@media only screen and (max-width: 735px) {
+    .form-content {
+        flex-flow: column nowrap;
+        justify-content: center;
+        
     }
 
-    .upper-section {
-        margin: 50px 20px 0px 20px;
+    .input {
+        width: 80%;
     }
 }
